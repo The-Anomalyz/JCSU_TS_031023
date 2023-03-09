@@ -4,10 +4,20 @@
 import './Login.css'
 import { useNavigate } from 'react-router-dom';
 import React, {useState} from 'react'
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 function Login() {
+    const navigate = useNavigate();
+    const auth = getAuth();
     const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+    const [password, setPassword] = useState("");
+    const login = e => {
+        e.preventDefault();
+    signInWithEmailAndPassword( auth, email, password).then((auth) => {
+      if (auth){
+          navigate('/')
+        }
+        }).catch(error => alert(error.message))}
 
   return (
     <div className='login'>
@@ -28,7 +38,7 @@ function Login() {
             value={password}
             required
           />
-            <button className='login-button' type="submit">Login</button>
+            <button className='login-button' type="submit" onClick={login}>Login</button>
             <button className='login-button'>Forgot Password</button>
             <button className='login-button-1' >Sign in with Google</button>
             <button className='login-button-1'>Sign in with Facebook</button>
