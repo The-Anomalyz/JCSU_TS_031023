@@ -40,6 +40,7 @@
     margin-top: 10px;
     border-color: rgb(43, 128, 240) #f3f3f3 #dddddd;
     color: #111;
+    cursor: pointer;
 }
 
 .login-button-1 {
@@ -51,5 +52,6 @@
     margin-top: 10px;
     border-color: rgb(43, 128, 240) #f3f3f3 #dddddd;
     color: #111;
+    cursor: pointer;
 }
 
