@@ -14,6 +14,8 @@ import { useStateValue } from "./StateProvider";
 import { loadStripe } from "@stripe/stripe-js"
 import { Elements } from '@stripe/react-stripe-js'*/
 
+import SignupForm from './SignupForm';
+import SignIn from './SignIn';
 
 function App() {
   return (
