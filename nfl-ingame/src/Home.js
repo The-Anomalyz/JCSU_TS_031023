@@ -9,30 +9,30 @@ function Home() {
   const images = [
       {
         id: 1,
-        src: 'playerview.jpg',
-        alt: 'Player View Mode',
-        title:'Player View Mode',
+        src: 'playerview.jpeg',
+        alt: 'streaming options',
+        title:'Go Pro LIVE Play',
         link: '/go-pro',
       },
       {
         id: 2,
-        src: 'sidelineview.jpg',
-        alt: 'Sideline View Mode',
-        title: 'Sideline View Mode',
-        link: 'https://www.youtube.com/watch?v=PWe1KY8HOCg',
+        src: 'camd.png',
+        alt: 'camedup',
+        title: "Cam'd Up",
+        link: '/camedup',
       },
       {
         id: 3,
-        src: 'coachview.jpg',
-        title: 'Coach View Mode',
-        alt: 'Coach View Mode',
-        link: 'https://www.youtube.com/watch?v=EhKb_6rnnEo&t=1s',
+        src: 'socialchat.png',
+        title: 'Social Chat',
+        alt: 'chat',
+        link: '/chat',
       },
   ];
 
   return (
     <div className='home-bottom'>
-      <h1>Select Your Experience</h1>
+      <h1>Viewing Options</h1>
       <ImageList images={
       images} />
     

@@ -8,21 +8,21 @@ function GoPro() {
     const images = [
         {
           id: 1,
-          src: 'playerview.jpg',
+          src: 'DALL·E 2023-03-10 04.50.21.png',
           alt: 'Player View Mode',
           title:'Player View Mode',
           link: 'https://www.youtube.com/watch?v=Lbo5KAPM7wg',
         },
         {
           id: 2,
-          src: 'sidelineview.jpg',
+          src: 'sidelines.png',
           alt: 'Sideline View Mode',
           title: 'Sideline View Mode',
           link: 'https://www.youtube.com/watch?v=PWe1KY8HOCg',
         },
         {
           id: 3,
-          src: 'coachview.jpg',
+          src: 'coachesView.png',
           title: 'Coach View Mode',
           alt: 'Coach View Mode',
           link: 'https://www.youtube.com/watch?v=EhKb_6rnnEo&t=1s',
