@@ -34,7 +34,7 @@ function Home() {
       <ImageList images={
       images} />
 
-      <Videos />
+      
     
     
       <div className="news-container">
