@@ -1,6 +1,6 @@
 import React from 'react';
 import ImageList from './ImageList';
-import Videos from './Videos';
+
 import { Link } from 'react-router-dom'
 import './Home.css'
 
@@ -35,8 +35,6 @@ function Home() {
       <h1>Select Your Experience</h1>
       <ImageList images={
       images} />
-
-      <Videos />
     
     
       <div className="news-container">

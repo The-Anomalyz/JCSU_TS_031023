@@ -1,0 +1,29 @@
+.news-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .gopro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    padding: 10px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    justify-content: center;
+  }
+  
+  .gopro-container-1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  
+  .gopro-bottom {
+    align-items: center;
+    display: flex;
+    justify-items: flex-end;
+    flex-direction: column;
+  }
