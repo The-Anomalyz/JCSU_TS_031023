@@ -16,6 +16,7 @@ import { Elements } from '@stripe/react-stripe-js'*/
 
 import SignupForm from './SignupForm';
 
+
 function App() {
   return (
     <div className="App">
