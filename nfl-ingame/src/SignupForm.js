@@ -3,8 +3,10 @@
 import React, { useState } from 'react';
 import './SignupForm.css';
 import { useNavigate } from 'react-router-dom';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 function SignupForm() {
+  const auth = getAuth();
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
@@ -41,6 +43,15 @@ function SignupForm() {
     setCountry(event.target.value);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    createUserWithEmailAndPassword( auth, email, password).then((auth) => {
+      if (auth){
+          navigate('/')
+      }
+  }).catch(error => alert(error.message))
+  };
+
   return (
     <div className='signup'>
       <div className="signup-form-container">
@@ -60,7 +71,7 @@ function SignupForm() {
           <input type="email" value={email} onChange={handleEmailChange} />
           <h5>Password</h5>
           <input type="password" value={password} onChange={handlePasswordChange} />
-        <button className='signup_button'>Sign up</button>
+        <button className='signup_button' onClick={handleSubmit}>Sign up</button>
       </form>
       <p>
         By Signing-in you agree to our terms of Condition. Please see our Privacy Notice, our Cookies Notice and our Interest-Based Ads
@@ -68,39 +79,6 @@ function SignupForm() {
     </div>
 
     </div>
-    /*React.createElement('div', { className: 'signup-form' },
-      React.createElement('form', { onSubmit: handleSubmit },
-        React.createElement('div', { className: 'form-group' },
-          React.createElement('label', { htmlFor: 'email' }, 'Email:'),
-          React.createElement('input', { type: 'email', id: 'email', name: 'email', value: formData.email, onChange: handleInputChange, required: true })
-        ),
-        React.createElement('div', { className: 'form-group' },
-          React.createElement('label', { htmlFor: 'password' }, 'Password:'),
-          React.createElement('input', { type: 'password', id: 'password', name: 'password', value: formData.password, onChange: handleInputChange, required: true })
-        ),
-        React.createElement('div', { className: 'form-group' },
-          React.createElement('label', { htmlFor: 'firstName' }, 'First Name:'),
-          React.createElement('input', { type: 'text', id: 'firstName', name: 'firstName', value: formData.firstName, onChange: handleInputChange, required: true })
-        ),
-        React.createElement('div', { className: 'form-group' },
-          React.createElement('label', { htmlFor: 'lastName' }, 'Last Name:'),
-          React.createElement('input', { type: 'text', id: 'lastName', name: 'lastName', value: formData.lastName, onChange: handleInputChange, required: true })
-        ),
-        React.createElement('div', { className: 'form-group' },
-          React.createElement('label', { htmlFor: 'dob' }, 'Date of Birth:'),
-          React.createElement('input', { type: 'date', id: 'dob', name: 'dob', value: formData.dob, onChange: handleInputChange, required: true })
-        ),
-        React.createElement('div', { className: 'form-group' },
-          React.createElement('label', { htmlFor: 'country' }, 'Country:'),
-          React.createElement('input', { type: 'text', id: 'country', name: 'country', value: formData.country, onChange: handleInputChange, required: true })
-        ),
-        React.createElement('div', { className: 'form-group' },
-          React.createElement('label', { htmlFor: 'zipcode' }, 'Zip Code:'),
-          React.createElement('input', { type: 'text', id: 'zipcode', name: 'zipcode', value: formData.zipcode, onChange: handleInputChange, required: true })
-        ),
-        React.createElement('button', { type: 'submit' }, 'Sign Up')
-      )
-    )*/
   );
 }
 

@@ -5,6 +5,8 @@ import React, { useEffect } from "react";
 import './App.css';
 import Header from "./Header";
 import Home from "./Home"
+import Settings from './Settings'
+import Profile from './Profile'
 import Footer from "./Footer"
 import Payment from './Payment'
 import {BrowserRouter, Routes, Route} from "react-router-dom" 
@@ -30,20 +32,34 @@ function App() {
             
             </>
           )}/>
-        <Route path='/login'
+          <Route path='/profile'
           element={(
             <>
             
-            <Login/>
+            <Profile/>
             
+            </>
+          )}/>
+          <Route path='/settings'
+          element={(
+            <>
+            <Header />
+            <Settings/>
+            </>
+          )}/>
+        <Route path='/login'
+          element={(
+            <>
+            <Login/>
             </>
           )}/>
           <Route path='/'
           element={(
             <>
-            
+            <Header />
             <Home />
-            
+            <Footer/>
+
             </>
           )}/>
         </Routes>
