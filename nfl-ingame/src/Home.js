@@ -12,7 +12,7 @@ function Home() {
         src: 'playerview.jpg',
         alt: 'Player View Mode',
         title:'Player View Mode',
-        link: 'https://www.youtube.com/watch?v=Lbo5KAPM7wg',
+        link: '/go-pro',
       },
       {
         id: 2,
