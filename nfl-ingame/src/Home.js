@@ -37,6 +37,22 @@ function Home() {
       images} />
     
       <div className="news-container">
+        <h2>Team Rankings</h2>
+        <div>
+          <img src="nflrank.jpg" alt="TeamRankings" style={{ maxWidth: '400px', maxHeight: '200px',
+              width: '320px',
+              height: '300px', padding: '10px',
+            }
+          }/>
+        <h2>Player Statistics</h2>
+        <div>
+          <img src="TOTP-1.png" alt="Playerstats" style={{ maxWidth: '400px', maxHeight: '200px',
+                width: '320px',
+                height: '300px', padding: '10px',
+              }
+            }/>
+        </div>
+        </div>
         <h2>Recent News</h2>
         
           <div className="container">
