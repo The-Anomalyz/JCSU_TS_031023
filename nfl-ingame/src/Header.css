@@ -13,9 +13,13 @@
     width: 10%;
     height: 600px;
     object-fit:scale-down;
-    margin: 0 20px;
     margin-top: 0px;
     left: 100%;
+    cursor: pointer;
+}
+
+.header-logo :hover {
+    opacity: 0.5;
 }
 
 .header-nav {

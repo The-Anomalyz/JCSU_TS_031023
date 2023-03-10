@@ -1,6 +1,8 @@
 import React from 'react';
 import ImageList from './ImageList';
 import Videos from './Videos';
+import { Link } from 'react-router-dom'
+import './Home.css'
 
 function Home() {
 
@@ -8,25 +10,28 @@ function Home() {
       {
         id: 1,
         src: 'playerview.jpg',
-        alt: 'Image 1',
-        link: '/page1',
+        alt: 'Player View Mode',
+        title:'Player View Mode',
+        link: 'https://www.youtube.com/watch?v=Lbo5KAPM7wg',
       },
       {
         id: 2,
         src: 'sidelineview.jpg',
-        alt: 'Image 2',
-        link: '/page2',
+        alt: 'Sideline View Mode',
+        title: 'Sideline View Mode',
+        link: 'https://www.youtube.com/watch?v=PWe1KY8HOCg',
       },
       {
         id: 3,
         src: 'coachview.jpg',
-        alt: 'Image 3',
-        link: '/page3',
+        title: 'Coach View Mode',
+        alt: 'Coach View Mode',
+        link: 'https://www.youtube.com/watch?v=EhKb_6rnnEo&t=1s',
       },
   ];
 
   return (
-    <div>
+    <div className='home-bottom'>
       <h1>Select Your Experience</h1>
       <ImageList images={
       images} />
@@ -36,28 +41,13 @@ function Home() {
     
       <div className="news-container">
         <h2>Recent News</h2>
-        <ul>
-          <div class="container">
-            <div class="box">
-              <a href="https://www.nfl.com/news" target="_blank" rel="noreferrer">
-                NFL news website
-              </a>
-            </div>
-              
-            <div class="box"> 
-              <a href="https://www.espn.com/nfl/" target="_blank" rel="noreferrer">
-                ESPN NFL news
-              </a>
-            </div> 
-
-            <div class="box"> 
-              <a href="https://bleacherreport.com/nfl" target="_blank" rel="noreferrer">
-                Bleacher Report NFL news
-              </a>
-            </div> 
-
+        
+          <div className="container">
+            <div className='container-1'><Link to={'https://www.nfl.com/news'}>NFL news website</Link></div>
+            <div className='container-1'><Link to={'https://www.espn.com/nfl/'}>ESPN NFL news</Link></div>
+            <div className='container-1'><Link to={'https://bleacherreport.com/nfl'}>Bleacher Report NFL news</Link></div>           
           </div>
-        </ul>
+        
       </div>
     </div>
   )
