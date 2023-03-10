@@ -10,25 +10,28 @@ function VideoSection() {
       <h2 onClick={() => handleClick('/videos')}>Latest Videos</h2>
       <div className="video-container">
         <div className="video-wrapper">
-          <iframe
-            title="Video 1"
-            src="https://www.youtube.com/watch?v=LU4lREMVaUI"
-            allowFullScreen
-          />
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/iNL9FcjfrEk" 
+          title="YouTube video player" frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
         </div>
         <div className="video-wrapper">
-          <iframe
-            title="Video 2"
-            src="https://www.youtube.com/watch?v=xiVwRYsmwAE"
-            allowFullScreen
-          />
+        <iframe width="560" height="315" 
+          src="https://www.youtube.com/embed/LU4lREMVaUI" 
+          title="YouTube video player" frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+        
         </div>
         <div className="video-wrapper">
-          <iframe
-            title="Video 3"
-            src="https://www.youtube.com/watch?v=Fg8T_xuOvPA"
-            allowFullScreen
-          />
+        <iframe width="560" height="315" 
+          src="https://www.youtube.com/embed/Fg8T_xuOvPA" 
+          title="YouTube video player" frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
         </div>
       </div>
     </div>

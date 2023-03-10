@@ -8,20 +8,23 @@ function Home() {
       {
         id: 1,
         src: 'playerview.jpg',
-        alt: 'Image 1',
-        link: '/page1',
+        alt: 'Player View Mode',
+        title:'Player View Mode',
+        link: 'https://www.youtube.com/watch?v=Lbo5KAPM7wg',
       },
       {
         id: 2,
         src: 'sidelineview.jpg',
-        alt: 'Image 2',
-        link: '/page2',
+        alt: 'Sideline View Mode',
+        title: 'Sideline View Mode',
+        link: 'https://www.youtube.com/watch?v=PWe1KY8HOCg',
       },
       {
         id: 3,
         src: 'coachview.jpg',
-        alt: 'Image 3',
-        link: '/page3',
+        title: 'Coach View Mode',
+        alt: 'Coach View Mode',
+        link: 'https://www.youtube.com/watch?v=EhKb_6rnnEo&t=1s',
       },
   ];
 
