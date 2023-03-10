@@ -36,7 +36,6 @@ function Home() {
       <ImageList images={
       images} />
     
-    
       <div className="news-container">
         <h2>Recent News</h2>
         
