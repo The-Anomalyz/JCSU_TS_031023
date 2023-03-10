@@ -1,7 +1,7 @@
 import React from 'react'
 import './GoPro.css'
 import ImageList from './ImageList';
-import Videos from './Videos';
+
 import { Link } from 'react-router-dom'
 
 function GoPro() {
@@ -34,8 +34,6 @@ function GoPro() {
       <h1>Select Your Experience</h1>
       <ImageList images={
       images} />
-
-      <Videos />
     
     
       <div className="news-container">
