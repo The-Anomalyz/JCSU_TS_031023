@@ -9,18 +9,18 @@ function Footer() {
         <div className="container">
                 <div className="column">
                     <h3>About NewOnline</h3>
-                        <Link style={{ textDecoration: 'none', color: 'black' }} to={"/about-us"}><span>About Us</span></Link>
-                        <Link style={{ textDecoration: 'none', color: 'black' }} to="/contact-us"><span>Contact Us</span></Link>
-                        <Link style={{ textDecoration: 'none', color: 'black' }} to="/privacy">Privacy Policy</Link>
-                        <Link style={{ textDecoration: 'none', color: 'black' }} to='/terms-and-conditions'>Terms and Condition</Link>   
+                        <Link style={{ textDecoration: 'none', color: 'white' }} to={"/about-us"}><span>About Us</span></Link>
+                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/contact-us"><span>Contact Us</span></Link>
+                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/privacy">Privacy Policy</Link>
+                        <Link style={{ textDecoration: 'none', color: 'white' }} to='/terms-and-conditions'>Terms and Condition</Link>   
                 </div>
                
                 
                 <div className="column">
                     <h3>Help & Support</h3>
-                        <Link style={{ textDecoration: 'none', color: 'black' }} to="/help">Help Center</Link>
-                        <Link style={{ textDecoration: 'none', color: 'black' }} to="/forgot">Forgot Password</Link>
-                        <Link style={{ textDecoration: 'none', color: 'black' }} to="/faq">Frequently Asked Questions</Link>  
+                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/help">Help Center</Link>
+                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/forgot">Forgot Password</Link>
+                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/faq">Frequently Asked Questions</Link>  
                 </div>
                 <div className="column">
                     <h3>Social Media</h3>
