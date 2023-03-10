@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 
 import './Login.css'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import React, {useState} from 'react'
 import {auth} from './firebase'
 import {  signInWithEmailAndPassword } from "firebase/auth";
@@ -42,6 +42,9 @@ function Login() {
             <button className='login-button-1' >Sign in with Google</button>
             <button className='login-button-1'>Sign in with Facebook</button>
             <button className='login-button-1'>Sign in with Apple</button>
+            <h5>Do not have an Account yet?! Sign Up</h5>
+            <Link to='/signup'><button className='login-button-1'>Sign Up</button></Link>
+            
       </form>
       
         
