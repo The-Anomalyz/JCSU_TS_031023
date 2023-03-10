@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 function Footer() {
   return (
     <div className='footer'>
-        <footer>
-        <div className="container">
+        <div className='footer-cont'>
+        <div className="container-f">
                 <div className="column">
                     <h3>About NewOnline</h3>
                         <Link style={{ textDecoration: 'none', color: 'white' }} to={"/about-us"}><span>About Us</span></Link>
@@ -32,9 +32,9 @@ function Footer() {
                         </Link>
                 </div>
             </div>
+            <button className='back__to__top'>Back to Top</button>
+        </div>
         
-        </footer>
-        <button className='back__to__top'>Back to Top</button>
     </div>
   )
 }

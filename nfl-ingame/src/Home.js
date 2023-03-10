@@ -1,6 +1,8 @@
 import React from 'react';
 import ImageList from './ImageList';
-import Videos from './Videos';
+
+import { Link } from 'react-router-dom'
+import './Home.css'
 
 function Home() {
 
@@ -29,38 +31,20 @@ function Home() {
   ];
 
   return (
-    <div>
+    <div className='home-bottom'>
       <h1>Select Your Experience</h1>
       <ImageList images={
       images} />
-
-      
-    
     
       <div className="news-container">
         <h2>Recent News</h2>
-        <ul>
-          <div class="container">
-            <div class="box">
-              <a href="https://www.nfl.com/news" target="_blank" rel="noreferrer">
-                NFL news website
-              </a>
-            </div>
-              
-            <div class="box"> 
-              <a href="https://www.espn.com/nfl/" target="_blank" rel="noreferrer">
-                ESPN NFL news
-              </a>
-            </div> 
-
-            <div class="box"> 
-              <a href="https://bleacherreport.com/nfl" target="_blank" rel="noreferrer">
-                Bleacher Report NFL news
-              </a>
-            </div> 
-
+        
+          <div className="container">
+            <div className='container-1'><Link to={'https://www.nfl.com/news'}>NFL news website</Link></div>
+            <div className='container-1'><Link to={'https://www.espn.com/nfl/'}>ESPN NFL news</Link></div>
+            <div className='container-1'><Link to={'https://bleacherreport.com/nfl'}>Bleacher Report NFL news</Link></div>           
           </div>
-        </ul>
+        
       </div>
     </div>
   )

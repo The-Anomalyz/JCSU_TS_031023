@@ -23,6 +23,9 @@ import FAQ from './FAQ';
 import Terms from './Terms';
 import Contact from './Contact';
 import About from './About';
+import GoPro from './GoPro';
+import Camedup from './Camedup';
+import Chat from './Chat';
 
 
 function App() {
@@ -30,6 +33,33 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
+        <Route path='/chat'
+          element={(
+            <>
+            <Header />
+            <Chat />
+            <Footer/>
+
+            </>
+          )}/>
+        <Route path='/camedup'
+          element={(
+            <>
+            <Header />
+            <Camedup />
+            <Footer/>
+
+            </>
+          )}/>
+        <Route path='/go-pro'
+          element={(
+            <>
+            <Header />
+            <GoPro />
+            <Footer/>
+
+            </>
+          )}/>
         <Route path='/about-us'
           element={(
             <>
