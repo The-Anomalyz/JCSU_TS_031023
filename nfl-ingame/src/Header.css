@@ -2,7 +2,7 @@
     height: 60px;
     display: flex;
     align-items: center;
-    background-color: #0c65e2;
+    background-color: #013368;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -11,10 +11,10 @@
 
 .header-logo {
     width: 10%;
-    height: 10%;
-    object-fit: scale-down;
+    height: 600px;
+    object-fit:scale-down;
     margin: 0 20px;
-    margin-top: 18px;
+    margin-top: 0px;
     left: 100%;
 }
 
@@ -34,7 +34,7 @@
 .header-link {
     font-size: 15px;
     font-weight: 700;
-    text-decoration-color: rgb(5, 108, 199);
-    color: #000; 
+    text-decoration-color: white;
+    color: white; 
 }
 

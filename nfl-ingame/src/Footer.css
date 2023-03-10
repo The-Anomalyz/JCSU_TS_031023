@@ -1,5 +1,5 @@
 .footer {
-    background: #1173c4;
+    background: #013369;
     padding: 50px 0;
     margin-top: 20px;
     flex-direction: column;
@@ -15,7 +15,7 @@
 .footer > h3 {
     font-size: 16px;
     font-weight: bold;
-    color: #222;
+    color:white;
 }
 .footer > button {
     position: right;
@@ -37,7 +37,7 @@
     flex-direction: column;
     margin-left: 30px;
     margin-right: 30px;
-    color: rgb(10, 8, 8);
+    color: white;
 }
 
 .back__to__top {
