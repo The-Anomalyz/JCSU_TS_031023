@@ -125,9 +125,9 @@ function App() {
           <Route path='/profile'
           element={(
             <>
-            
+            <Header />
             <Profile/>
-            
+            <Footer />
             </>
           )}/>
           <Route path='/settings'
