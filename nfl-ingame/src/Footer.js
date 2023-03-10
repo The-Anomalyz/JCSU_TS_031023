@@ -9,22 +9,17 @@ function Footer() {
         <div className="container">
                 <div className="column">
                     <h3>About NewOnline</h3>
-                        <Link style={{ textDecoration: 'none', color: 'black' }} to={"/about"}><span>About Us</span></Link>
-                        <Link style={{ textDecoration: 'none', color: 'black' }} to="/contact"><span>Contact Us</span></Link>
+                        <Link style={{ textDecoration: 'none', color: 'black' }} to={"/about-us"}><span>About Us</span></Link>
+                        <Link style={{ textDecoration: 'none', color: 'black' }} to="/contact-us"><span>Contact Us</span></Link>
                         <Link style={{ textDecoration: 'none', color: 'black' }} to="/privacy">Privacy Policy</Link>
-                        <Link style={{ textDecoration: 'none', color: 'black' }} to='/terms'>Terms and Condition</Link>   
+                        <Link style={{ textDecoration: 'none', color: 'black' }} to='/terms-and-conditions'>Terms and Condition</Link>   
                 </div>
                
-                <div className="column">
-                    <h3>Account</h3>
-                        <Link style={{ textDecoration: 'none', color: 'black' }} to="/account">My Account</Link>
-                        <Link style={{ textDecoration: 'none', color: 'black' }} to="/forgot">Forgot Password</Link>
-                        <Link style={{ textDecoration: 'none', color: 'black' }} to="/details">Personal Details</Link>    
-                </div>
+                
                 <div className="column">
                     <h3>Help & Support</h3>
                         <Link style={{ textDecoration: 'none', color: 'black' }} to="/help">Help Center</Link>
-                        <Link style={{ textDecoration: 'none', color: 'black' }} to="/report">Report a Problem</Link>
+                        <Link style={{ textDecoration: 'none', color: 'black' }} to="/forgot">Forgot Password</Link>
                         <Link style={{ textDecoration: 'none', color: 'black' }} to="/faq">Frequently Asked Questions</Link>  
                 </div>
                 <div className="column">

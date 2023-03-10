@@ -1,16 +1,15 @@
 .footer {
-    width: 100%;
     background: #1173c4;
     padding: 50px 0;
     margin-top: 20px;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin: 10px;
     padding: 20px;
     min-width: 100px;
     z-index: -10;
     align-items: center;
-    bottom: 0%;
+    
 }
 
 .footer > h3 {
