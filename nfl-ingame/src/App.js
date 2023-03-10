@@ -44,7 +44,6 @@ function App() {
             <>
             <Header />
             <Settings/>
-            
             </>
           )}/>
         <Route path='/login'
@@ -58,7 +57,8 @@ function App() {
             <>
             <Header />
             <Home />
-            
+            <Footer/>
+
             </>
           )}/>
         </Routes>
