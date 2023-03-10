@@ -17,12 +17,73 @@ import { loadStripe } from "@stripe/stripe-js"
 import { Elements } from '@stripe/react-stripe-js'*/
 
 import SignupForm from './SignupForm';
+import Privacy from './Privacy';
+import Help from './Help';
+import FAQ from './FAQ';
+import Terms from './Terms';
+import Contact from './Contact';
+import About from './About';
+
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
+        <Route path='/about-us'
+          element={(
+            <>
+            <Header />
+            <About />
+            <Footer/>
+
+            </>
+          )}/>
+        <Route path='/contact-us'
+          element={(
+            <>
+            <Header />
+            <Contact />
+            <Footer/>
+
+            </>
+          )}/>
+        <Route path='/terms-and-conditions'
+          element={(
+            <>
+            <Header />
+            <Terms />
+            <Footer/>
+
+            </>
+          )}/>
+        <Route path='/faq'
+          element={(
+            <>
+            <Header />
+            <FAQ />
+            <Footer/>
+
+            </>
+          )}/>
+        <Route path='/help'
+          element={(
+            <>
+            <Header />
+            <Help />
+            <Footer/>
+
+            </>
+          )}/>
+        <Route path='/privacy'
+          element={(
+            <>
+            <Header />
+            <Privacy />
+            <Footer/>
+
+            </>
+          )}/>
         <Route path='/signup'
           element={(
             <>
