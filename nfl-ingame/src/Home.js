@@ -7,19 +7,19 @@ function Home() {
   const images = [
       {
         id: 1,
-        src: 'playerView.png',
+        src: 'playerview.jpg',
         alt: 'Image 1',
         link: '/page1',
       },
       {
         id: 2,
-        src: 'pngkit_nfl-football-png_1748776.png',
+        src: 'sidelineview.jpg',
         alt: 'Image 2',
         link: '/page2',
       },
       {
         id: 3,
-        src: 'png-clipart-american-football-football-player-nfl-nfl-football-action-shots-sports-equipment-competition-event-thumbnail.png',
+        src: 'coachview.jpg',
         alt: 'Image 3',
         link: '/page3',
       },
@@ -28,7 +28,8 @@ function Home() {
   return (
     <div>
       <h1>Select Your Experience</h1>
-      <ImageList images={images} />
+      <ImageList images={
+      images} />
 
       <Videos />
     

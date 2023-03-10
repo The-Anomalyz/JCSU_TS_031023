@@ -3,13 +3,7 @@
     overflow-y: auto; /* Enable vertical scrolling */
   }
 
-.image {
-  flex: 0 0 auto;
-  width: 200px;
-  height: 200px;
-  margin-right: 10px;
-  scroll-snap-align: center;
-}
+
 .container {
   display: flex;
   justify-content: space-between;
