@@ -36,7 +36,7 @@ function GoPro() {
       images} />
     
     
-      <div className="news-container">
+      <div className="news-container-gopro">
         <h2>Recent News</h2>
         
           <div className="gopro-container">

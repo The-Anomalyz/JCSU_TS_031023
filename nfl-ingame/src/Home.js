@@ -36,7 +36,7 @@ function Home() {
       <ImageList images={
       images} />
     
-      <div className="news-container">
+      <div className="news-container-home">
         <h2>Team Rankings</h2>
         <div>
           <img src="nflrank.jpg" alt="TeamRankings" style={{ maxWidth: '400px', maxHeight: '200px',

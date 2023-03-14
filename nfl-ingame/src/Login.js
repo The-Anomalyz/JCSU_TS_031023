@@ -46,9 +46,6 @@ function Login() {
             <Link to='/signup'><button className='login-button-1'>Sign Up</button></Link>
             
       </form>
-      
-        
-
         </div>
 
     </div>

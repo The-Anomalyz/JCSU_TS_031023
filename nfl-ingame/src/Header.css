@@ -25,6 +25,7 @@
 .header-nav {
     display: flex;
     justify-content: flex-end;
+    flex-grow: 1;
 }
 
 .header-nav-1 {
@@ -41,4 +42,42 @@
     text-decoration-color: white;
     color: white; 
 }
+
+.header-nav-account {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .header-nav-account-btn {
+    cursor: pointer;
+  }
+  
+  .header-nav-account-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 10px;
+  }
+  
+  .header-nav-account-btn:hover .header-nav-account-dropdown {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header-link {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .header-link:hover {
+    color: #06c;
+  }
 

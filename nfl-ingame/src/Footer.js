@@ -3,12 +3,19 @@ import './Footer.css'
 import { Link } from 'react-router-dom'
 
 function Footer() {
+
+    const handleScrollTop = () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
   return (
     <div className='footer'>
         <div className='footer-cont'>
         <div className="container-f">
                 <div className="column">
-                    <h3>About NewOnline</h3>
+                    <h3>About SideX</h3>
                         <Link style={{ textDecoration: 'none', color: 'white' }} to={"/about-us"}><span>About Us</span></Link>
                         <Link style={{ textDecoration: 'none', color: 'white' }} to="/contact-us"><span>Contact Us</span></Link>
                         <Link style={{ textDecoration: 'none', color: 'white' }} to="/privacy">Privacy Policy</Link>
@@ -32,7 +39,7 @@ function Footer() {
                         </Link>
                 </div>
             </div>
-            <button className='back__to__top'>Back to Top</button>
+            <button className='back__to__top' onClick={handleScrollTop}></button>
         </div>
         
     </div>
