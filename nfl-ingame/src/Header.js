@@ -1,43 +1,65 @@
 
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './Header.css'
-import { getAuth, signOut } from "firebase/auth";
+import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 
 function Header() {
   const auth = getAuth();
-  const user = auth.currentUser;
-  const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // Listen for changes in the authentication state
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in
+        setUser(user);
+      } else {
+        // User is signed out
+        setUser(null);
+      }
+    });
+  }, []);
+
     const handleSignOut = () => {
-      setIsLoggingOut(true);
-      
-      if (user) {signOut(auth).then(() => {
+      signOut(auth).then(() => {
       // Sign-out successful.
       console.log("Sign-out successful.");
     }).catch((error) => {
       // An error happened.
       console.error("An error happened: ", error);
-    }).finally(() => {
-      setIsLoggingOut(false);
-    });}
-  }
+    })}
+  
   const navigate = useNavigate();
+  // Handle the click event for the Logout/Login button
   const handleClick = () => {
-    navigate('/')
-}
+    if (user) {
+      // User is signed in, sign them out
+      handleSignOut();
+    } else {
+      // User is signed out, redirect them to the login page
+      navigate("/login");
+    }
+  };
 
   return (
     <div className='header'>
         <img onClick={handleClick} className='header-logo' src='sideline-PhotoRoom.png' alt=''/>
         <div className='header-nav'>
             <div className='header-nav-1'><Link to= '/' className='header-link'><span>Home</span></Link></div>
-            <div className='header-nav-1'>
-          {isLoggingOut ? (
-            <span>Loading...</span>
+            <div className="header-nav-1">
+          {user ? (
+            // User is signed in, display Logout button
+            <span onClick={handleClick} className="header-link">
+              Logout
+            </span>
           ) : (
-            <Link to={!user ? '/login' : '/'} className='header-link'><span onClick={handleSignOut}>{user ? 'Logout' : 'Login'}</span></Link>
+            // User is signed out, display Login button
+            <Link to="/login" className="header-link">
+              <span>Login</span>
+            </Link>
           )}
         </div>
             <div className='header-nav-1'><Link to='/profile' className='header-link'><span>Profile</span></Link></div>
@@ -46,7 +68,17 @@ function Header() {
             <span>Account</span>
             <div className='header-nav-account-dropdown'>
               <Link to='/settings' className='header-link'><span>Settings</span></Link>
-              <Link to='/logout' className='header-link'><span>Logout</span></Link>
+              {user ? (
+                // User is signed in, display Logout button
+                <span onClick={handleClick} className="header-link">
+                  Logout
+                </span>
+              ) : (
+                // User is signed out, display Login button
+                <Link to="/login" className="header-link">
+                  <span>Login</span>
+                </Link>
+              )}
             </div>
           </div>
         </div>              

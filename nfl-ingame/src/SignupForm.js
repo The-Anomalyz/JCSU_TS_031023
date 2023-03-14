@@ -3,11 +3,13 @@
 import React, { useState } from 'react';
 import './SignupForm.css';
 import { useNavigate } from 'react-router-dom';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { getDatabase, ref, push } from "firebase/database";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { auth } from './firebase';
+
 
 function SignupForm() {
-  const auth = getAuth();
+  
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
@@ -16,8 +18,9 @@ function SignupForm() {
   const [dob, setDOB] = useState('');
   const [country, setCountry] = useState('');
   const [zip, setZip] = useState('');
-  const db = getDatabase();
-  const userRef = ref(db, "users");
+  const db = getFirestore();
+  const user = auth.currentUser;
+  const userRef = collection(db, `users/${user?.uid}/info`);
   const newUser = {
     name: name,
     surname: surname,
@@ -66,21 +69,19 @@ function SignupForm() {
     if (zipError) {
       return;
     }
-    createUserWithEmailAndPassword( auth, email, password).then((auth) => {
-      if (auth){
-          navigate('/')
-      }
-  }).catch(error => alert(error.message))
-
-  push(userRef, newUser)
-  .then(() => {
-    console.log("Data written to database");
-  })
-  .catch((error) => {
-    console.error("Error writing data to database: ", error);
-  });
-
-  };
+    createUserWithEmailAndPassword( auth, email, password)
+  .then((auth) => {
+    if (auth){
+      addDoc(userRef, newUser)
+        .then(() => {
+          console.log("Data written to database");
+        })
+        .catch((error) => {
+          console.error("Error writing data to database: ", error);
+        });
+      navigate('/')
+    }
+  }).catch(error => alert(error.message));}
 
   const countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas"
   ,"Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands"
