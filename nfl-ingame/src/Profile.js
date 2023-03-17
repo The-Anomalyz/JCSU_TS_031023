@@ -4,15 +4,22 @@
 import React, { useState, useEffect } from 'react'
 import './Profile.css'
 import Loyalty from './Loyalty'
-import { getAuth, updateProfile } from "firebase/auth";
+import { updateProfile } from "firebase/auth";
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
-import { getFirestore, collection, doc, onSnapshot } from 'firebase/firestore';
+import { collection, doc, onSnapshot } from 'firebase/firestore';
+import { auth, db } from './firebase';
+import { Link, useNavigate } from 'react-router-dom'
+
+
 
 
 function Profile() {
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState([]);
+  const [displayName, setDisplayName] = useState('');
+  const [profilePictureUrl, setProfilePictureUrl] = useState('');
+  const [profilePictureLoaded, setProfilePictureLoaded] = useState(false);
+  
 
-  const auth = getAuth();
   const user = auth.currentUser;
   console.log('User:', user.uid)
   
@@ -21,24 +28,30 @@ function Profile() {
     console.log("useEffect called");
     
     if (user) {
-      // Get a reference to the Realtime Database
-      
-      const db = getFirestore();
-      const userRef = collection(db, 'users');
-  
-      // Listen for changes to the user's data in the Realtime Database
-      onSnapshot(collection(userRef, `${user.uid}/info`), (snapshot) => {
-        const userData = snapshot.docs.map((doc) => doc.data());
-          setUserData(userData);
+
+      const userDocRef = collection(db, `users/${user?.uid}/info`);
+
+      onSnapshot(userDocRef, (snapshot) => {
+        snapshot.docs.forEach((doc) => {
+          console.log('Data', doc.data());
+          setUserData(doc.data());
+          setDisplayName(doc.data().name + ' ' + doc.data().surname)
+          // Fetch the profile picture from Firebase Storage
+            const storage = getStorage();
+            const pictureRef = storageRef(storage, `users/${user.uid}/profilePicture`);
+            getDownloadURL(pictureRef).then((url) => {
+              setProfilePictureUrl(url);
+              setProfilePictureLoaded(true);
+            });
           
-        console.log(userData)
-      }, (error) =>{
-        console.log('Error fetching user data:', error);
-      })
+        });
+      });
+    
     } else {
       console.log("No user is currently signed in.");
     }
   }, [user]);
+
   
   if (!user) {
     return <div>Please log in to view your profile.</div>;
@@ -58,33 +71,38 @@ function Profile() {
   const loyaltyPoints = 100;
   return (
     <div className="profile-container">
-      
-      <h3>My Profile</h3>
-      <div className="profile-info">
-        <img src="https://placehold.it/150x150" alt="Profile Pic" />
-        <div className="profile-details">
-          <p>Name: John Doe</p>
-          <p>Location: New York</p>
-          <p>Sport: Football</p>
-          <p>Favorite Team: New York Giants</p>
-        </div>
+    <h3>My Profile</h3>
+    
+    <div className="profile-info">
+    {profilePictureLoaded ? (
+          <img src={profilePictureUrl} alt="Profile Pic" />
+        ) : (
+          <div className="loading-placeholder"></div>
+        )}
+      <div className="profile-details">
+        <p>Name: {displayName}</p>
+        <p>Location: {userData && userData.country ? userData.country : ''}</p>
+        <p>Sport: {userData && userData.sport ? userData.sport : ''}</p>
+        <p>Favorite Team: {userData && userData.favoriteTeam ? userData.favoriteTeam : ''}</p>
       </div>
-      <div className="profile-stats">
-        <div className="stat">
-          <p>Followers</p>
-          <p>100</p>
-        </div>
-        <div className="stat">
-          <p>Following</p>
-          <p>50</p>
-        </div>
-        <div className="stat">
-          <p>Posts</p>
-          <p>25</p>
-        </div>
-      </div>
-      <Loyalty loyaltyPoints={loyaltyPoints} />
     </div>
+    <div className="profile-stats">
+      <div className="stat">
+        <p>Followers</p>
+        <p>{userData && userData.followers ? userData.followers : 100}</p>
+      </div>
+      <div className="stat">
+        <p>Following</p>
+        <p>{userData && userData.following ? userData.following : 50}</p>
+      </div>
+      <div className="stat">
+        <p>Posts</p>
+        <p>{userData && userData.posts ? userData.posts : 25}</p>
+      </div>
+      <div><Link to={'/update-profile'}><button className='prof-btn'>Update Profile</button></Link></div>
+    </div>
+    <Loyalty loyaltyPoints={loyaltyPoints} />
+  </div>
   )
 }
 

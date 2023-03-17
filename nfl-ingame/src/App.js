@@ -7,6 +7,7 @@ import Header from "./Header";
 import Home from "./Home"
 import Settings from './Settings'
 import Profile from './Profile'
+import UpdateProfile from './UpdateProfile'
 import Footer from "./Footer"
 import Payment from './Payment'
 import {BrowserRouter, Routes, Route} from "react-router-dom" 
@@ -120,6 +121,14 @@ function App() {
             
             <SignupForm/>
             
+            </>
+          )}/>
+          <Route path='/update-profile'
+          element={(
+            <>
+            <Header />
+            <UpdateProfile/>
+            <Footer />
             </>
           )}/>
           <Route path='/profile'

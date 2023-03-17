@@ -5,7 +5,8 @@ import './SignupForm.css';
 import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
-import { auth } from './firebase';
+import { getStorage, ref, uploadBytes } from 'firebase/storage';
+import { auth, db, storage } from './firebase';
 
 
 function SignupForm() {
@@ -18,9 +19,8 @@ function SignupForm() {
   const [dob, setDOB] = useState('');
   const [country, setCountry] = useState('');
   const [zip, setZip] = useState('');
-  const db = getFirestore();
-  const user = auth.currentUser;
-  const userRef = collection(db, `users/${user?.uid}/info`);
+  
+  
   const newUser = {
     name: name,
     surname: surname,
@@ -72,9 +72,14 @@ function SignupForm() {
     createUserWithEmailAndPassword( auth, email, password)
   .then((auth) => {
     if (auth){
+      const user = auth.user;
+      const userRef = collection(db, `users/${user?.uid}/info`);
       addDoc(userRef, newUser)
         .then(() => {
           console.log("Data written to database");
+          const storageRef = ref(storage, `users/${user.uid}/profilePicture`);
+          const defaultProfilePicture = 'https://placehold.it/150x150';
+          uploadBytes(storageRef, defaultProfilePicture);
         })
         .catch((error) => {
           console.error("Error writing data to database: ", error);

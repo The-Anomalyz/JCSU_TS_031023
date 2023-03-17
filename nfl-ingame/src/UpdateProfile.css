@@ -1,42 +1,43 @@
-.profile-container {
+.up-profile-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    min-height: 800px;
   }
   
-  .profile-info {
+  .up-profile-info {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
   }
   
-  .profile-details {
+  .up-profile-details {
     display: flex;
     flex-direction: column;
     margin-left: 20px;
   }
   
-  .profile-details p {
+  .up-profile-details p {
     margin: 5px 0;
   }
   
-  .profile-stats {
+  .up-profile-stats {
     display: flex;
     justify-content: space-around;
     width: 100%;
   }
   
-  .stat {
+  .up-stat {
     text-align: center;
   }
   
-  .stat p:first-child {
+  .up-stat p:first-child {
     font-weight: bold;
     margin-bottom: 5px;
   }
 
-  .prof-btn {
+  .up-prof-btn {
     right: 100%;
     bottom: 100%;
   }
